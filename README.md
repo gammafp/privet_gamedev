@@ -1,2 +1,3 @@
-# privet_gamedev
-Cambiar descripción
+# PRIVET GAMEDEV
+
+Las históricas aventuras de Daniela.
