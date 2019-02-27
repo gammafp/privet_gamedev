@@ -1,0 +1,1 @@
+/* Las constantes del juego */
