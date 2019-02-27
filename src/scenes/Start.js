@@ -9,7 +9,7 @@ class Start extends Phaser.Scene {
     }
 
     create() {
-        
+        this.add.sprite(100, 100, 'nina_troglo');
     }
 
     update() {
