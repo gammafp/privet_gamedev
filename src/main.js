@@ -3,7 +3,7 @@ import Bootloader from './Bootloader.js';
 
 const config = {
     title: "Privet Gamedev",
-    verion: '0.0.0',
+    version: '0.0.0',
 
     width: 640,
     height: 360,
@@ -24,4 +24,3 @@ const config = {
 };
 
 const game = new Phaser.Game(config);
-const EE = new EventEmitter3();
