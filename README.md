@@ -8,5 +8,3 @@ Proyecto Intercentro e Internivelar entre alumnos de la Escuela Rural CEIP Migue
 En el que entre ambos centros van a participar en la creación de un videojuego con todas sus fases.
 
 Con la colaboración de dos programadores indies Fran Pereira twitter: @gammafp y Bárbara Bris twitter: @barbrilue que aportarán sus conocimientos técnicos para que ambos niveles FP y Primaria aprendan de la creación de un videojuego real.
-
-Soy Barbara, solo probando que todo funciona, luego borro esta línea.
