@@ -10,7 +10,7 @@ class Bootloader extends Phaser.Scene {
     }
 
     create() {
-        this.scene.start('Start');
+        this.scene.start('IntroStory');
     }
 }
 export default Bootloader;

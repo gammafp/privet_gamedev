@@ -1,11 +1,11 @@
 
-class Start extends Phaser.Scene {
+class IntroStory extends Phaser.Scene {
     constructor() {
-        super({key: 'Start'});
+        super({key: 'IntroStory'});
     }
     
     preload() {
-        console.log('Scene: Start');
+        console.log('Scene: IntroStory');
     }
 
     create() {
@@ -17,4 +17,4 @@ class Start extends Phaser.Scene {
     }
 }
 
-export default Start;
+export default IntroStory;
