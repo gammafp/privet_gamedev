@@ -1,12 +1,12 @@
 {
     "frames": [
         {
-            "filename": "nina_troglo_0",
+            "filename": "daniela_0",
             "frame": {
                 "x": 1,
                 "y": 1,
-                "w": 64,
-                "h": 120
+                "w": 29,
+                "h": 33
             },
             "anchor": {
                 "x": 0.5,
@@ -14,12 +14,12 @@
             }
         },
         {
-            "filename": "nina_troglo_1",
+            "filename": "daniela_1",
             "frame": {
-                "x": 67,
+                "x": 32,
                 "y": 1,
-                "w": 64,
-                "h": 120
+                "w": 29,
+                "h": 33
             },
             "anchor": {
                 "x": 0.5,
@@ -27,25 +27,12 @@
             }
         },
         {
-            "filename": "nina_troglo_2",
+            "filename": "daniela_2",
             "frame": {
-                "x": 133,
+                "x": 63,
                 "y": 1,
-                "w": 64,
-                "h": 120
-            },
-            "anchor": {
-                "x": 0.5,
-                "y": 0.5
-            }
-        },
-        {
-            "filename": "nina_troglo_3",
-            "frame": {
-                "x": 199,
-                "y": 1,
-                "w": 64,
-                "h": 120
+                "w": 29,
+                "h": 33
             },
             "anchor": {
                 "x": 0.5,

@@ -5,18 +5,18 @@ const config = {
     title: "Privet Gamedev",
     version: '0.0.0',
 
-    width: 640,
-    height: 360,
+    width: 320,
+    height: 180,
     type: Phaser.AUTO,
     parent: "container",
     backgroundColor: "#95afc0",
     pixelArt: true,
-
+    zoom: 3,
     physics: {
         default: "arcade",
         "arcade": {
             gravity: {
-                y: 500
+                y: 700
             }
         }
     },

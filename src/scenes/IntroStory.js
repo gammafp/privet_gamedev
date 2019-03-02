@@ -1,3 +1,4 @@
+import Daniela from '../player/Daniela.js';
 
 class IntroStory extends Phaser.Scene {
     constructor() {
@@ -9,11 +10,16 @@ class IntroStory extends Phaser.Scene {
     }
 
     create() {
-        this.add.sprite(100, 100, 'nina_troglo');
+        this.daniela = new Daniela({
+            scene: this,
+            key: 'daniela',
+            x: this.sys.game.config.width/2,
+            y: 100
+        });
     }
 
-    update() {
-
+    update(time, delta) {
+        this.daniela.update(delta);
     }
 }
 
