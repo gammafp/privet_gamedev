@@ -6,8 +6,8 @@ class Bootloader extends Phaser.Scene {
     preload() {
         console.log('Bootloader :D');
         this.load.path = './assets/';
-        this.load.atlas('nina', 'img/nina/nina.png', 'img/nina/nina_atlas.json');
-        this.load.animation('ninaData', 'img/nina/nina_anim.json');
+        this.load.atlas('daniela', 'img/daniela/daniela.png', 'img/daniela/daniela_atlas.json');
+        this.load.animation('danielaData', 'img/daniela/daniela_anim.json');
 
     }
 

@@ -1,0 +1,36 @@
+{
+    "anims": [{
+            "key": "daniela_idle",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [{
+                "key": "daniela",
+                "frame": "daniela_0"
+            }]
+        },
+        {
+            "key": "daniela_walk",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [{
+                    "key": "daniela",
+                    "frame": "daniela_0"
+                },
+                {
+                    "key": "daniela",
+                    "frame": "daniela_1"
+                },
+                {
+                    "key": "daniela",
+                    "frame": "daniela_0"
+                },
+                {
+                    "key": "daniela",
+                    "frame": "daniela_2"
+                }
+            ]
+        }
+    ]
+}
