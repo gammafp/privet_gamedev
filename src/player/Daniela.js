@@ -34,8 +34,8 @@ class Daniela extends Phaser.GameObjects.Sprite {
             this.jumpTimer -= delta;
 
             // Right
-            if (this.cursor.right.isDown) {
-                if (this.body.velocity.y === 0 && this.prevAnim == 'left') {
+            if (this.cursor.right.isDown && !this.jumping) {
+                if (this.body.velocity.y === 0) {
                     if (Math.abs(this.body.velocity.x) > 100) {
                         this.walk(this.acceleration * this.deceleration * this.friction);
                     } else {
@@ -57,7 +57,7 @@ class Daniela extends Phaser.GameObjects.Sprite {
             else if (this.cursor.left.isDown) {
                 if (this.body.velocity.y === 0) {
                     // TODO: corregir movimiento
-                    if (this.body.velocity.x > 100 && this.prevAnim == 'right') {
+                    if (this.body.velocity.x > 100) {
                         this.walk(-(this.acceleration * this.deceleration * this.friction));
                     } else {
                         this.walk(-this.acceleration);
@@ -72,11 +72,11 @@ class Daniela extends Phaser.GameObjects.Sprite {
                     // Desaceleración aérea
                     this.walk(-this.acceleration * 3);
                 }
-
             }
             // UP/jump
 
             if (this.cursor.up.isDown && (!this.jumping || this.jumpTimer > 0)) {
+
                 if (this.body.velocity.y < 0 || this.body.blocked.down) {
                     this.body.setVelocityY(-this.jumpForce);
                 }
@@ -84,6 +84,7 @@ class Daniela extends Phaser.GameObjects.Sprite {
                     this.jumpTimer = 300;
                 }
                 this.jumping = true;
+
                 if (this.prevAnim != 'jump') {
                     this.anims.play('daniela_idle');
                 }
@@ -91,8 +92,8 @@ class Daniela extends Phaser.GameObjects.Sprite {
 
             } else if (!this.cursor.up.isDown) {
                 this.jumpTimer = -1; // Don't resume jump if button is released, prevents mini double-jumps
-                console.log('False')
                 if (this.body.blocked.down) {
+                    console.log('Está en el suelo');
                     this.jumping = false;
                 }
             }
@@ -100,7 +101,6 @@ class Daniela extends Phaser.GameObjects.Sprite {
         } else {
             if (!this.cursor.up.isDown) {
                 this.jumpTimer = -1; // Don't resume jump if button is released, prevents mini double-jumps
-                console.log('False')
                 if (this.body.blocked.down) {
                     this.jumping = false;
                 }
