@@ -6,16 +6,16 @@
             "frameRate": 4,
             "frames": [{
                 "key": "daniela",
-                "frame": "daniela_3"
+                "frame": "daniela_2"
                 },{
                 "key": "daniela",
-                "frame": "daniela_4"
+                "frame": "daniela_3"
+                },{
+                    "key": "daniela",
+                    "frame": "daniela_4"
                 },{
                     "key": "daniela",
                     "frame": "daniela_5"
-                },{
-                    "key": "daniela",
-                    "frame": "daniela_6"
                 }
         ]
         },
@@ -31,14 +31,6 @@
                 {
                     "key": "daniela",
                     "frame": "daniela_1"
-                },
-                {
-                    "key": "daniela",
-                    "frame": "daniela_0"
-                },
-                {
-                    "key": "daniela",
-                    "frame": "daniela_2"
                 }
             ]
         }
