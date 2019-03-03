@@ -31,16 +31,16 @@ class Daniela extends Phaser.GameObjects.Sprite {
         this.prevAnim = 'idle';
 
         /**
-        * Controles externos, se puede usar para animar a Daniela en algún momento.
-        * @since 0.0.1
-        */
+         * Controles externos, se puede usar para animar a Daniela en algún momento.
+         * @since 0.0.1
+         */
         this.animControl = {
             left: false,
             right: false,
             jump: false
         };
 
-      
+
         this.cursor = this.scene.input.keyboard.createCursorKeys();
 
     }
@@ -56,6 +56,33 @@ class Daniela extends Phaser.GameObjects.Sprite {
         // Nos permite hacer el salto con peso
         this.jumpTimer -= delta;
 
+        if (control.left) {
+            this.moverLeftRight('left');
+        } else if (control.right) {
+            this.moverLeftRight('right');
+        } else if (this.body.blocked.down) {
+            // Fricción con el suelo 
+
+            // Anima cuando daniela cae al suelo cuando cae Daniela
+            if (this.body.velocity.x > 5 && !this.jumping) {
+                this.animation('right', 'daniela_walk');
+            } else if (this.body.velocity.x < -5 && !this.jumping) {
+                this.animation('left', 'daniela_walk');
+            }
+            if (Math.abs(this.body.velocity.x) < 10) {
+                // Detener por completo cuando la velocidad es menor de 10
+                this.animation('idle', 'daniela_idle');
+                this.body.setVelocityX(0);
+                this.run(0);
+            } else {
+                // Si la velocidad es mayor de 10 desacelerar rápido
+                this.run(((this.body.velocity.x > 0) ? -1 : 1) * this.acceleration + this.deceleration);
+            }
+        } else if (!this.body.blocked.down) {
+            // Si está en el aire no se acelera más 
+            this.run(0);
+        }
+
         if (control.jump && (!this.jumping || this.jumpTimer > 0)) {
             this.jump();
         } else if (!control.jump) {
@@ -65,68 +92,51 @@ class Daniela extends Phaser.GameObjects.Sprite {
                 this.jumping = false;
             }
         }
-        if (control.left) {
-            this.left();
-        } else if (control.right) {
-            this.right();
-        } else if (this.body.blocked.down) {
-            // Fricción con el suelo 
-            if (Math.abs(this.body.velocity.x) < 10) {
-                this.body.setVelocityX(0);
-                this.run(0);
-            } else {
-                this.run(((this.body.velocity.x > 0) ? -1 : 1) * this.acceleration + this.deceleration);
-            }
-        } else if (!this.body.blocked.down) {
-            // Si está en el aire no se acelera más 
-            this.run(0);
-        }
     }
 
     // Métodos usados en la lógica, están separado para mejor orden    
-    left() {
-        if (this.body.velocity.y === 0) {
-            if (this.body.velocity.x > 100) {
-                this.run(-this.acceleration * this.deceleration * this.friction);
-            } else {
-                this.run(-this.acceleration);
-            }
-        } else {
-            this.run(-this.acceleration / 3);
-        }
-        this.flipX = false;
-    }
-
-    right() {
+    moverLeftRight(dir) {
+        let acceleration = ((dir === 'right') ? 1 : -1) * this.acceleration;
         if (this.body.velocity.y === 0) {
             if (Math.abs(this.body.velocity.x) > 100) {
-                this.run(this.acceleration * this.deceleration * this.friction);
+                this.run(acceleration * this.deceleration * this.friction);
             } else {
-                this.run(this.acceleration);
+                this.run(acceleration);
             }
+            this.animation(dir, 'daniela_walk');
         } else {
-            this.run(this.acceleration / 3);
+            // Desacelerar en el aire
+            this.run(acceleration);
         }
-        this.flipX = true;
+        this.flipX = ((dir === 'right') ? true : false);
     }
-
+ 
     jump() {
         if (!this.body.blocked.down && !this.jumping) {
             return void 0;
         }
         if (this.body.velocity.y < 0 || this.body.blocked.down) {
-            this.body.setVelocityY(-200);
+            this.body.setVelocityY(-this.jumpForce);
         }
-
         if (!this.jumping) {
             this.jumpTimer = 300;
         }
         this.jumping = true;
 
+        // Animación de salto
+        this.animation('jump', 'daniela_idle');
+
     }
 
     run(velocity) {
         this.body.setAccelerationX(velocity);
+    }
+
+    animation(direction, animation) {
+        if (this.prevAnimJump !== direction) {
+            this.anims.play(animation);
+        }
+        this.prevAnimJump = direction;
     }
 }
 export default Daniela;
