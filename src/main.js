@@ -3,7 +3,7 @@ import Bootloader from './Bootloader.js';
 
 const config = {
     title: "Privet Gamedev",
-    version: '0.0.0',
+    version: '0.0.1',
 
     width: 320,
     height: 180,
