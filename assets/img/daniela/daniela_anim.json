@@ -3,11 +3,21 @@
             "key": "daniela_idle",
             "type": "frames",
             "repeat": -1,
-            "frameRate": 12,
+            "frameRate": 4,
             "frames": [{
                 "key": "daniela",
-                "frame": "daniela_0"
-            }]
+                "frame": "daniela_3"
+                },{
+                "key": "daniela",
+                "frame": "daniela_4"
+                },{
+                    "key": "daniela",
+                    "frame": "daniela_5"
+                },{
+                    "key": "daniela",
+                    "frame": "daniela_6"
+                }
+        ]
         },
         {
             "key": "daniela_walk",

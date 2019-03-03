@@ -3,9 +3,9 @@
         {
             "filename": "daniela_0",
             "frame": {
-                "x": 1,
-                "y": 1,
-                "w": 29,
+                "x": 0,
+                "y": 0,
+                "w": 31,
                 "h": 33
             },
             "anchor": {
@@ -16,9 +16,9 @@
         {
             "filename": "daniela_1",
             "frame": {
-                "x": 32,
-                "y": 1,
-                "w": 29,
+                "x": 31,
+                "y": 0,
+                "w": 31,
                 "h": 33
             },
             "anchor": {
@@ -29,9 +29,61 @@
         {
             "filename": "daniela_2",
             "frame": {
-                "x": 63,
-                "y": 1,
-                "w": 29,
+                "x": 62,
+                "y": 0,
+                "w": 31,
+                "h": 33
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "daniela_3",
+            "frame": {
+                "x": 93,
+                "y": 0,
+                "w": 31,
+                "h": 33
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "daniela_4",
+            "frame": {
+                "x": 124,
+                "y": 0,
+                "w": 31,
+                "h": 33
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "daniela_5",
+            "frame": {
+                "x": 155,
+                "y": 0,
+                "w": 31,
+                "h": 33
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "daniela_6",
+            "frame": {
+                "x": 186,
+                "y": 0,
+                "w": 31,
                 "h": 33
             },
             "anchor": {
