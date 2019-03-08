@@ -11,13 +11,14 @@ class Daniela extends Phaser.GameObjects.Sprite {
         config.scene.add.existing(this);
 
         this.bounce = 0.5;
-        this.body.collideWorldBounds = true;
-        this.acceleration = 200;
+        // this.body.collideWorldBounds = true;
+        this.acceleration = 300;
         this.body.maxVelocity.x = 150;
         this.body.maxVelocity.y = 500;
 
         // Configuraciones extras para el movimiento
-        this.jumpForce = 150;
+        // this.jumpForce = 150;
+        this.jumpForce = 350;
         this.jumpTimer = 0;
         this.jumping = false;
 
@@ -29,7 +30,7 @@ class Daniela extends Phaser.GameObjects.Sprite {
         // Animación inicial
         this.anims.play('daniela_idle');
         this.prevAnim = 'idle';
-
+        this.body.setSize(9, 30);
         /**
          * Controles externos, se puede usar para animar a Daniela en algún momento.
          * @since 0.0.1
