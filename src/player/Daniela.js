@@ -30,7 +30,8 @@ class Daniela extends Phaser.GameObjects.Sprite {
         // Animación inicial
         this.anims.play('daniela_idle');
         this.prevAnim = 'idle';
-        this.body.setSize(9, 30);
+        this.body.setSize(20, 30);
+        this.setDepth(1);
         /**
          * Controles externos, se puede usar para animar a Daniela en algún momento.
          * @since 0.0.1
