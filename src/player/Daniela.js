@@ -132,7 +132,6 @@ class Daniela extends Phaser.GameObjects.Sprite {
         // Animación de salto
         this.animation('jump', 'daniela_idle');
         
-        this.soundJump.play();
 
     }
 
@@ -143,6 +142,9 @@ class Daniela extends Phaser.GameObjects.Sprite {
     animation(direction, animation) {
         if (this.prevAnimJump !== direction) {
             this.anims.play(animation);
+            if(direction === 'jump') {
+                this.soundJump.play();
+            }
         }
         this.prevAnimJump = direction;
     }
