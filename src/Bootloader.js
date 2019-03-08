@@ -18,6 +18,9 @@ class Bootloader extends Phaser.Scene {
         this.load.on('complete', () => {
             this.scene.start('Level1');
         });
+
+        //Soundos
+        this.load.audio("soundJump", "sounds/jump.mp3");
     }
 
     create() {
