@@ -15,7 +15,7 @@ class Level1 extends Phaser.Scene {
         this.daniela = new Daniela({
             scene: this,
             key: 'daniela',
-            x: this.sys.game.config.width / 2,
+            x: this.sys.game.config.width / 4,
             y: 100
         }).setScale(2);
 
@@ -23,7 +23,7 @@ class Level1 extends Phaser.Scene {
             key: 'Level1'
         });
 
-        let level1Tile = map.addTilesetImage('set-cave_bright');
+        let level1Tile = map.addTilesetImage('caveStones');
         let Level1 = map.createDynamicLayer('World', level1Tile, 0, 0);
         Level1.setCollisionByExclusion([-1]);
         
