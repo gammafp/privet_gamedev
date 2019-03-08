@@ -11,7 +11,7 @@ class Bootloader extends Phaser.Scene {
 
         // Map
         this.load.tilemapTiledJSON('Level1', '../src/worlds/level1/cavemap.json');
-        this.load.image('set-cave_bright', '../src/worlds/level1/set-cave_bright.png');
+        this.load.image('caveStones', '../src/worlds/level1/caveStones.png');
     
         // Enemy
         this.load.image('bats', 'img/bat/bat-32X32.png');
