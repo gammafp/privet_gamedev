@@ -45,6 +45,10 @@ class Daniela extends Phaser.GameObjects.Sprite {
 
         this.cursor = this.scene.input.keyboard.createCursorKeys();
 
+
+         //Sounds create
+        this.soundJump = this.scene.sound.add("soundJump");
+
     }
 
     update(delta) {
@@ -127,6 +131,8 @@ class Daniela extends Phaser.GameObjects.Sprite {
 
         // Animación de salto
         this.animation('jump', 'daniela_idle');
+        
+        this.soundJump.play();
 
     }
 
