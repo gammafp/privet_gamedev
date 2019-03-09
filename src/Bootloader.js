@@ -15,12 +15,16 @@ class Bootloader extends Phaser.Scene {
     
         // Enemy
         this.load.image('bats', 'img/bat/bat-32X32.png');
+
+        //Sounds
+        this.load.audio("soundJump", "sounds/jump.mp3");
+        
+        
         this.load.on('complete', () => {
             this.scene.start('Level1');
         });
 
-        //Soundos
-        this.load.audio("soundJump", "sounds/jump.mp3");
+        
     }
 
     create() {
