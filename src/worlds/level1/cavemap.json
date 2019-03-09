@@ -140,18 +140,6 @@
          "objects":[
                 {
                  "height":0,
-                 "id":36,
-                 "name":"Wheel",
-                 "point":true,
-                 "rotation":0,
-                 "type":"Wheel",
-                 "visible":true,
-                 "width":0,
-                 "x":48,
-                 "y":368
-                }, 
-                {
-                 "height":0,
                  "id":39,
                  "name":"Wheel",
                  "point":true,
@@ -231,7 +219,7 @@
  "nextobjectid":45,
  "orientation":"orthogonal",
  "renderorder":"right-down",
- "tiledversion":"1.2.0",
+ "tiledversion":"1.2.2",
  "tileheight":32,
  "tilesets":[
         {
