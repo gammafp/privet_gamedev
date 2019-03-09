@@ -28,20 +28,8 @@
                  "type":"Bat",
                  "visible":true,
                  "width":0,
-                 "x":654,
-                 "y":147
-                }, 
-                {
-                 "height":0,
-                 "id":28,
-                 "name":"Bat",
-                 "point":true,
-                 "rotation":0,
-                 "type":"Bat",
-                 "visible":true,
-                 "width":0,
-                 "x":926,
-                 "y":266
+                 "x":704,
+                 "y":213
                 }, 
                 {
                  "height":0,
@@ -69,18 +57,6 @@
                 }, 
                 {
                  "height":0,
-                 "id":31,
-                 "name":"Bat",
-                 "point":true,
-                 "rotation":0,
-                 "type":"Bat",
-                 "visible":true,
-                 "width":0,
-                 "x":1478,
-                 "y":554
-                }, 
-                {
-                 "height":0,
                  "id":32,
                  "name":"Bat",
                  "point":true,
@@ -102,30 +78,6 @@
                  "width":0,
                  "x":658,
                  "y":636
-                }, 
-                {
-                 "height":0,
-                 "id":34,
-                 "name":"Bat",
-                 "point":true,
-                 "rotation":0,
-                 "type":"Bat",
-                 "visible":true,
-                 "width":0,
-                 "x":340,
-                 "y":752
-                }, 
-                {
-                 "height":0,
-                 "id":44,
-                 "name":"Bat",
-                 "point":true,
-                 "rotation":0,
-                 "type":"Bat",
-                 "visible":true,
-                 "width":0,
-                 "x":508,
-                 "y":483
                 }],
          "opacity":1,
          "type":"objectgroup",
