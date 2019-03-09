@@ -17,10 +17,10 @@ const config = {
         default: "arcade",
         "arcade": {
             gravity: {
-                y: 700
+                y: 700,
             },
             // debug: true,
-        }
+        },
     },
     scene: [Bootloader, IntroStory, Level1]
 };

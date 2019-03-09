@@ -14,7 +14,10 @@ class Bootloader extends Phaser.Scene {
         this.load.image('caveStones', '../src/worlds/level1/caveStones.png');
     
         // Enemy
-        this.load.image('bats', 'img/bat/bat-32X32.png');
+        this.load.spritesheet('bats', 'img/bat/bat-32X32.png', {
+            frameWidth: 32,
+            frameHeight: 32
+        });
 
         //Sounds
         this.load.audio("soundJump", "sounds/jump.mp3");
