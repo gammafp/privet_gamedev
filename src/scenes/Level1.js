@@ -10,10 +10,33 @@ class Level1 extends Phaser.Scene {
     }
 
     preload() {
-        console.log('Scene: Level1');
+        console.log('Scene: Level1');        
     }
 
     create() {
+
+        //Sounds
+        this.soundLEVEL1_LOLO_findBracelet = this.sound.add("LEVEL1_LOLO_findBracelet");
+        this.soundLEVEL1_LOLO_findBracelet.play();
+
+        //Text Dialog
+        this.textDialog = this.add.text(20, 570, 'Daniela, tienes que buscar la Pulsera mágica.', {
+            fontSize: '25px',
+            fill: '#ffffff'
+        });
+        this.textDialog.setScrollFactor(0);
+        this.textDialog.setDepth(1);
+
+
+        //Text Health
+        this.textHealth = this.add.text(20, 20, 'Vidas:3', {
+            fontSize: '25px',
+            fill: '#ffffff'
+        }); 
+        this.textHealth.setScrollFactor(0);
+        this.textHealth.setDepth(1);
+
+
         //bat move
         this.anims.create({
             key: 'bat_move',
@@ -63,9 +86,11 @@ class Level1 extends Phaser.Scene {
         this.physics.add.collider(this.batsGroup, Level1);
         this.physics.add.collider(this.wheelsGroup, Level1);
         this.physics.add.overlap(this.daniela, this.bats, () => {
+            this.daniela.enemyCollision();            
             console.log('Daniela colisiona con murciélago');
         });
         this.physics.add.overlap(this.daniela, this.wheels, () => {
+            this.daniela.enemyCollision();
             console.log('Daniela colisiona con ruedas');
         });
 

@@ -6,6 +6,16 @@ class Daniela extends Phaser.GameObjects.Sprite {
     constructor(config) {
         super(config.scene, config.x, config.y, config.key);
 
+
+        //Health
+        this.health = 3;
+        //has been hit by obstacles 
+        this.hitDelay = false;
+        //Gameover
+        this.gameOver = false;
+        //Win
+        this.winner = false;
+
         // Configuración del GameObject
         config.scene.physics.world.enable(this);
         config.scene.add.existing(this);
@@ -48,6 +58,7 @@ class Daniela extends Phaser.GameObjects.Sprite {
 
          //Sounds create
         this.soundJump = this.scene.sound.add("soundJump");
+        this.soundDanielaAuch = this.scene.sound.add("danielaAuch");
 
     }
 
@@ -148,5 +159,37 @@ class Daniela extends Phaser.GameObjects.Sprite {
         }
         this.prevAnimJump = direction;
     }
+
+    loseHealth() {
+        this.health--;        
+        this.scene.textHealth.setText("Vidas:"+ this.health );
+        console.log("Health  " + this.health );
+        if (this.health === 0) {
+          this.gameOver = true;
+          console.log("GameOver");
+        }
+    }
+    
+    enemyCollision() {
+        if (!this.hitDelay) {
+          this.loseHealth();
+          this.hitDelay = true;
+          this.tint = 0xff9900;
+          this.soundDanielaAuch.play();
+          if (this.scene) {
+            this.scene.time.addEvent({
+              delay: 1000,
+              callback: () => {
+                this.hitDelay = false;
+                this.tint = 0xffffff;
+              },
+              callbackScope: this
+            });
+          }
+        }
+    }
+    
+    
+
 }
 export default Daniela;
