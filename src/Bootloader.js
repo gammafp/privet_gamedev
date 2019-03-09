@@ -19,6 +19,12 @@ class Bootloader extends Phaser.Scene {
             frameHeight: 32
         });
 
+        this.load.spritesheet('wheel', 'img/wheelStone/wheelStone_Spritesheet_32x32x4.png', {
+            frameWidth: 32,
+            frameHeight: 32
+        });
+
+       
         //Sounds
         this.load.audio("soundJump", "sounds/jump.mp3");
         

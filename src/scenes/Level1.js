@@ -1,5 +1,6 @@
 import Daniela from '../player/Daniela.js';
 import Bats from '../gameObjects/Bats.js';
+import Wheels from '../gameObjects/Wheels.js';
 
 class Level1 extends Phaser.Scene {
     constructor() {
@@ -19,8 +20,18 @@ class Level1 extends Phaser.Scene {
             frames: this.anims.generateFrameNumbers('bats', { start: 4, end: 7 }),
             frameRate: 5,
             repeat: -1
-        }); 
+        });
+        
+        
+        //  movewheel animation
+        this.anims.create({
+            key: 'wheel_move',
+            frames: this.anims.generateFrameNumbers('wheel', { start: 0, end: 3 }),
+            frameRate: 10,
+            repeat: -1
+        });
 
+        //Daniela Creation
         this.daniela = new Daniela({
             scene: this,
             key: 'daniela',
@@ -28,6 +39,7 @@ class Level1 extends Phaser.Scene {
             y: 100
         }).setScale(2);
 
+        //Read Tilemap
         let map = this.make.tilemap({
             key: 'Level1'
         });
@@ -36,6 +48,10 @@ class Level1 extends Phaser.Scene {
         //Creating Bats         
         this.bats = map.createFromObjects('Bats', 'Bat', {key: 'bats'});        
         this.batsGroup = new Bats(this.physics.world, this, [], this.bats);
+
+        //Creating Wheels         
+        this.wheels = map.createFromObjects('Wheels', 'Wheel', {key: 'wheels'});        
+        this.wheelsGroup = new Wheels(this.physics.world, this, [], this.wheels); 
         
         //Tilemap
         let level1Tile = map.addTilesetImage('caveStones');
@@ -45,20 +61,29 @@ class Level1 extends Phaser.Scene {
         //Colliders
         this.physics.add.collider(this.daniela, Level1);        
         this.physics.add.collider(this.batsGroup, Level1);
+        this.physics.add.collider(this.wheelsGroup, Level1);
         this.physics.add.overlap(this.daniela, this.bats, () => {
-            console.log('Daniela colisiona');
+            console.log('Daniela colisiona con murciélago');
         });
+        this.physics.add.overlap(this.daniela, this.wheels, () => {
+            console.log('Daniela colisiona con ruedas');
+        });
+
+        
         
         this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
         this.cameras.main.startFollow(this.daniela);
         console.log(this.batsGroup);
         this.anims.play('bat_move', this.bats);
+        this.anims.play('wheel_move',this.wheels);
 
     }
 
     update(time, delta) {
         this.daniela.update(delta);
         this.batsGroup.update();
+        this.wheelsGroup.update();
+
     }
 }
 

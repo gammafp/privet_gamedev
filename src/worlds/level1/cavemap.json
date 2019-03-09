@@ -28,8 +28,8 @@
                  "type":"Bat",
                  "visible":true,
                  "width":0,
-                 "x":626,
-                 "y":152
+                 "x":654,
+                 "y":147
                 }, 
                 {
                  "height":0,
@@ -114,6 +114,18 @@
                  "width":0,
                  "x":340,
                  "y":752
+                }, 
+                {
+                 "height":0,
+                 "id":44,
+                 "name":"Bat",
+                 "point":true,
+                 "rotation":0,
+                 "type":"Bat",
+                 "visible":true,
+                 "width":0,
+                 "x":508,
+                 "y":483
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -124,8 +136,80 @@
         {
          "draworder":"topdown",
          "id":6,
-         "name":"wheels",
-         "objects":[],
+         "name":"Wheels",
+         "objects":[
+                {
+                 "height":0,
+                 "id":36,
+                 "name":"Wheel",
+                 "point":true,
+                 "rotation":0,
+                 "type":"Wheel",
+                 "visible":true,
+                 "width":0,
+                 "x":48,
+                 "y":368
+                }, 
+                {
+                 "height":0,
+                 "id":39,
+                 "name":"Wheel",
+                 "point":true,
+                 "rotation":0,
+                 "type":"Wheel",
+                 "visible":true,
+                 "width":0,
+                 "x":1175,
+                 "y":342
+                }, 
+                {
+                 "height":0,
+                 "id":40,
+                 "name":"Wheel",
+                 "point":true,
+                 "rotation":0,
+                 "type":"Wheel",
+                 "visible":true,
+                 "width":0,
+                 "x":52,
+                 "y":536
+                }, 
+                {
+                 "height":0,
+                 "id":41,
+                 "name":"Wheel",
+                 "point":true,
+                 "rotation":0,
+                 "type":"Wheel",
+                 "visible":true,
+                 "width":0,
+                 "x":721,
+                 "y":534
+                }, 
+                {
+                 "height":0,
+                 "id":42,
+                 "name":"Wheel",
+                 "point":true,
+                 "rotation":0,
+                 "type":"Wheel",
+                 "visible":true,
+                 "width":0,
+                 "x":1549,
+                 "y":662
+                }, 
+                {
+                 "height":0,
+                 "id":43,
+                 "name":"Wheel",
+                 "point":true,
+                 "rotation":0,
+                 "type":"Wheel",
+                 "visible":true,
+                 "width":0,
+                 "x":828,
+                 "y":758
+                }],
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
@@ -144,10 +228,10 @@
          "y":0
         }],
  "nextlayerid":9,
- "nextobjectid":35,
+ "nextobjectid":45,
  "orientation":"orthogonal",
  "renderorder":"right-down",
- "tiledversion":"1.2.2",
+ "tiledversion":"1.2.0",
  "tileheight":32,
  "tilesets":[
         {
