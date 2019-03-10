@@ -187,7 +187,7 @@ class Daniela extends Phaser.GameObjects.Sprite {
     }
 
     nextScene() {
-        this.scene.textDialog.setText("Bien!! Lo has Conseguido!!");
+        this.scene.textDialog.setText("Bien!! Lo hemos Conseguido!!");
     }
 
 
