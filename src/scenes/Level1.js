@@ -2,6 +2,7 @@ import Daniela from '../player/Daniela.js';
 import Bats from '../gameObjects/Bats.js';
 import Wheels from '../gameObjects/Wheels.js';
 
+
 class Level1 extends Phaser.Scene {
     constructor() {
         super({
@@ -13,14 +14,32 @@ class Level1 extends Phaser.Scene {
         console.log('Scene: Level1');        
     }
 
-    create() {
+    create() {       
+
+
+        // background
+        this.bg = this.add.tileSprite(0, 0, 2560, 1440, 'bg_Level1').setOrigin(0).setScale(0.65);
 
         //Sounds
         this.soundLEVEL1_LOLO_findBracelet = this.sound.add("LEVEL1_LOLO_findBracelet");
         this.soundLEVEL1_LOLO_findBracelet.play();
+        
+        //Wait 2 seconds to play background music
+        this.music = this.sound.add('CaveBats');       
+        this.time.addEvent({
+              delay: 2000,
+              callback: () => {
+                this.music.play();
+                this.music.setLoop(true);
+              },
+              callbackScope: this
+        });
+        
+
+        this.soundLOLO_Bien_lo_hemos_conseguido = this.sound.add("LOLO_Bien_lo_hemos_conseguido");
 
         //Text Dialog
-        this.textDialog = this.add.text(20, 570, 'Daniela, tienes que buscar la Pulsera mágica.', {
+        this.textDialog = this.add.text(30, 570, 'Daniela, tienes que buscar la Pulsera mágica.', {
             fontSize: '25px',
             fill: '#ffffff'
         });
@@ -29,7 +48,7 @@ class Level1 extends Phaser.Scene {
 
 
         //Text Health
-        this.textHealth = this.add.text(20, 20, 'Vidas:3', {
+        this.textHealth = this.add.text(30, 20, 'Vidas:3', {
             fontSize: '25px',
             fill: '#ffffff'
         }); 
@@ -50,6 +69,14 @@ class Level1 extends Phaser.Scene {
         this.anims.create({
             key: 'wheel_move',
             frames: this.anims.generateFrameNumbers('wheel', { start: 0, end: 3 }),
+            frameRate: 10,
+            repeat: -1
+        });
+
+        //  bracelet animation
+        this.anims.create({
+            key: 'bracelet_move',
+            frames: this.anims.generateFrameNumbers('bracelet', { start: 0, end: 3 }),
             frameRate: 10,
             repeat: -1
         });
@@ -75,6 +102,15 @@ class Level1 extends Phaser.Scene {
         //Creating Wheels         
         this.wheels = map.createFromObjects('Wheels', 'Wheel', {key: 'wheels'});        
         this.wheelsGroup = new Wheels(this.physics.world, this, [], this.wheels); 
+
+        //Create Bracelet
+        this.bracelets = map.createFromObjects('Bracelet', 'positionEnd', {key: 'bracelet'});          
+        this.physics.world.enable(this.bracelets);
+        this.magicbracelet = this.bracelets[0];
+        this.magicbracelet.setScale(0.75);
+        this.magicbracelet.body.setAllowGravity(false);        
+        this.anims.play('bracelet_move', this.magicbracelet);      
+       
         
         //Tilemap
         let level1Tile = map.addTilesetImage('caveStones');
@@ -85,6 +121,14 @@ class Level1 extends Phaser.Scene {
         this.physics.add.collider(this.daniela, Level1);        
         this.physics.add.collider(this.batsGroup, Level1);
         this.physics.add.collider(this.wheelsGroup, Level1);
+        this.physics.add.overlap(this.daniela, this.magicbracelet, () => {
+            this.daniela.nextScene();
+            this.scene.pause();
+            this.music.stop();
+            this.soundLOLO_Bien_lo_hemos_conseguido.play();
+            
+            console.log('Daniela encuentra pulsera magica');
+        });
         this.physics.add.overlap(this.daniela, this.bats, () => {
             this.daniela.enemyCollision();            
             console.log('Daniela colisiona con murciélago');
@@ -104,7 +148,7 @@ class Level1 extends Phaser.Scene {
 
     }
 
-    update(time, delta) {
+    update(time, delta) {        
         this.daniela.update(delta);
         this.batsGroup.update();
         this.wheelsGroup.update();
