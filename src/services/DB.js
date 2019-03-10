@@ -10,9 +10,18 @@
          void 0);
 
 const DB = {
-    
+    daniela: {
+        costume: 'daniela'
+    },
+    worlds: [
+        {
+            name: 'Level1',
+            passed: false
+        }
+    ]
 }
 
  export default {
-     createDB
+     createDB,
+     DB
  };

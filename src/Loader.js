@@ -1,6 +1,12 @@
+import DB from "./services/DB.js";
+
 class Loader extends Phaser.Scene {
     constructor() {
         super('Loader');
+    }
+
+    init() {
+        DB.createDB([{key: 'gamedata', value: DB.DB}]);
     }
 
     preload() {

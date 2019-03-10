@@ -20,7 +20,7 @@ const config = {
             gravity: {
                 y: 700,
             },
-            debug: true,
+            debug: false,
         },
     },
     scene: [Loader, Bootloader, IntroStory, Level1]
