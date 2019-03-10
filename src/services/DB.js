@@ -13,12 +13,14 @@ const DB = {
     daniela: {
         costume: 'daniela'
     },
+    actualLevel: 'Level1',
     worlds: [
         {
             name: 'Level1',
             passed: false
         }
-    ]
+    ],
+    skipIntro: true
 }
 
  export default {
