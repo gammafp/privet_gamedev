@@ -14,13 +14,11 @@ class Bootloader extends Phaser.Scene {
         this.load.tilemapTiledJSON('Level1', '../src/worlds/level1/cavemap.json');
         this.load.image('caveStones', '../src/worlds/level1/caveStones.png');
     
-
         //Backgrounds
         this.load.image('bg_Level1', 'img/backgrounds/2560x1440-snapSat1800.jpg');
         //Se cambiara por un dibujo de los niños de una cueva
         //Ahora mismo esta de ejemplo
         //http://kidskunst.info/46/05451-2d-game-background-cave.htm
-
 
         // Enemy
         this.load.spritesheet('bats', 'img/bat/bat-32X32.png', {
@@ -57,53 +55,15 @@ class Bootloader extends Phaser.Scene {
             this.scene.start('Level1');
         });*/
 
-
-
-        //PROGRESS BAR
-        var width = this.cameras.main.width;
-        var height = this.cameras.main.height;
-
-        let x = width / 2 - 10;
-        let y = height / 2 + 30;
-        var progressBar = this.add.graphics();
-        var progressBox = this.add.graphics();
-        progressBox.fillStyle(0xffffff, 0.5);
-        progressBox.fillRect(x - 140, y - 10, 320, 50);
-
-        var loadingText = this.make.text({
-            x: width / 2 - 5,
-            y: height / 2 - 30,
-            text: 'Loading...',
-            style: {
-                font: '20px monospace',
-                fill: '#ffffff'
-            }
+        // Progress
+        this.load.on('progress', (value) => {
+            this.registry.events.emit('load_progress', value);
         });
-        loadingText.setOrigin(0.5, 0.5);
-
-        var percentText = this.make.text({
-            x: width / 2 - 10,
-            y: height / 2 - 2,
-            text: '0%',
-            style: {
-                font: '18px monospace',
-                fill: '#ffffff'
-            }
-        });
-        percentText.setOrigin(0.5, 0.5);
-
-        //While Loading show Progress Bar with percent
-        this.load.on('progress', function (value) {
-            percentText.setText(parseInt(value * 100) + '%');
-            progressBar.clear();
-            progressBar.fillStyle(0xffffff, 1);
-            progressBar.fillRect(x - 130, y, 300 * value, 30);
-        });
-
-
-
         //When all the assests are load go to next Scene
         this.load.on("complete", () => {
+            this.scene.stop('Loader');
+            this.scene.stop('Bootloader');
+
             this.scene.start("Level1");
         });
 

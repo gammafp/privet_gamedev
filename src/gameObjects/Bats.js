@@ -26,6 +26,9 @@ class Bats extends Phaser.Physics.Arcade.Group {
 
     update() {
         this.children.iterate((bat) => {
+            if(bat.body.velocity.x === 0) {
+                this.move((Phaser.Math.Between(0, 1) ? 'left' : 'right'), bat);
+            }
             if (bat.body.blocked.right) {
                 this.move('left', bat);
             } else if (bat.body.blocked.left) {

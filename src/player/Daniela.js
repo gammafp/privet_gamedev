@@ -6,7 +6,6 @@ class Daniela extends Phaser.GameObjects.Sprite {
     constructor(config) {
         super(config.scene, config.x, config.y, config.key);
 
-
         //Health
         this.health = 3;
         //has been hit by obstacles 
@@ -52,11 +51,9 @@ class Daniela extends Phaser.GameObjects.Sprite {
             jump: false
         };
 
-
         this.cursor = this.scene.input.keyboard.createCursorKeys();
 
-
-         //Sounds create
+        //Sounds create
         this.soundJump = this.scene.sound.add("soundJump");
         this.soundDanielaAuch = this.scene.sound.add("danielaAuch");
 
@@ -127,7 +124,7 @@ class Daniela extends Phaser.GameObjects.Sprite {
         }
         this.flipX = ((dir === 'right') ? true : false);
     }
- 
+
     jump() {
         if (!this.body.blocked.down && !this.jumping) {
             return void 0;
@@ -142,7 +139,7 @@ class Daniela extends Phaser.GameObjects.Sprite {
 
         // Animación de salto
         this.animation('jump', 'daniela_idle');
-        
+
 
     }
 
@@ -153,7 +150,7 @@ class Daniela extends Phaser.GameObjects.Sprite {
     animation(direction, animation) {
         if (this.prevAnimJump !== direction) {
             this.anims.play(animation);
-            if(direction === 'jump') {
+            if (direction === 'jump') {
                 this.soundJump.play();
             }
         }
@@ -161,39 +158,39 @@ class Daniela extends Phaser.GameObjects.Sprite {
     }
 
     loseHealth() {
-        this.health--;        
-        this.scene.textHealth.setText("Vidas:"+ this.health );
-        console.log("Health  " + this.health );
+        this.health--;
+        this.scene.textHealth.setText("Vidas:" + this.health);
+        console.log("Health  " + this.health);
         if (this.health === 0) {
-          this.gameOver = true;
-          console.log("GameOver");
-        }
-    }
-    
-    enemyCollision() {
-        if (!this.hitDelay) {
-          this.loseHealth();
-          this.hitDelay = true;
-          this.tint = 0xff9900;
-          this.soundDanielaAuch.play();
-          if (this.scene) {
-            this.scene.time.addEvent({
-              delay: 1000,
-              callback: () => {
-                this.hitDelay = false;
-                this.tint = 0xffffff;
-              },
-              callbackScope: this
-            });
-          }
+            this.gameOver = true;
+            console.log("GameOver");
         }
     }
 
-    nextScene(){
+    enemyCollision() {
+        if (!this.hitDelay) {
+            this.loseHealth();
+            this.hitDelay = true;
+            this.tint = 0xff9900;
+            this.soundDanielaAuch.play();
+            if (this.scene) {
+                this.scene.time.addEvent({
+                    delay: 1000,
+                    callback: () => {
+                        this.hitDelay = false;
+                        this.tint = 0xffffff;
+                    },
+                    callbackScope: this
+                });
+            }
+        }
+    }
+
+    nextScene() {
         this.scene.textDialog.setText("Bien!! Lo has Conseguido!!");
     }
-    
-    
+
+
 
 }
 export default Daniela;

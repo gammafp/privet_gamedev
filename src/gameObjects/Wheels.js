@@ -23,6 +23,9 @@ class Wheels extends Phaser.Physics.Arcade.Group {
 
     update() {
         this.children.iterate((wheel) => {
+            if(wheel.body.velocity.x === 0) {
+                this.move((Phaser.Math.Between(0, 1) ? 'left' : 'right'), wheel);
+            }
             if (wheel.body.blocked.right) {
                 this.move('left', wheel);
             } else if (wheel.body.blocked.left) {

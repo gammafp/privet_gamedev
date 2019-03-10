@@ -9,6 +9,10 @@
          store.set(db.key, db.value) :
          void 0);
 
+const DB = {
+    
+}
+
  export default {
      createDB
  };

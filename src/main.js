@@ -1,6 +1,7 @@
 import Level1 from './scenes/Level1.js';
 import IntroStory from './scenes/IntroStory.js';
 import Bootloader from './Bootloader.js';
+import Loader from './Loader.js';
 
 const config = {
     title: "Privet Gamedev",
@@ -19,10 +20,10 @@ const config = {
             gravity: {
                 y: 700,
             },
-            // debug: true,
+            debug: true,
         },
     },
-    scene: [Bootloader, IntroStory, Level1]
+    scene: [Loader, Bootloader, IntroStory, Level1]
 };
 
 const game = new Phaser.Game(config);
